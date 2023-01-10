@@ -22,7 +22,7 @@
 
 Rails.application.routes.draw do
   resources :posts do
-    resources :comments
+    resources :comments, except: [:index, :show]
   end
   root to: 'posts#index'
 end

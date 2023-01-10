@@ -11,3 +11,18 @@
     <%= link_to 'Back', posts_path, class: 'btn btn-light' %>
   </div>
 </div>
+
+<div class="card my-1">
+  <div class="card-body">
+    <p class="fw-bold">Comments</p>
+    <%= form_with(model: [@post, @post.comments.build]) do |f| %>
+      <div class="mb-3">
+        <%= f.label 'New comment' %>
+        <%= f.text_area :body, class: 'form-control' %>
+      </div>
+      <%= f.submit 'Submit', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
+
+<%= render @post.comments %>

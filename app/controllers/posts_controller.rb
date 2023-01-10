@@ -1,25 +1,26 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
 
-  # GET /posts
+  # @route GET /posts (posts)
+  # @route GET / (root)
   def index
     @posts = Post.all
   end
 
-  # GET /posts/1
+  # @route GET /posts/:id (post)
   def show
   end
 
-  # GET /posts/new
+  # @route GET /posts/new (new_post)
   def new
     @post = Post.new
   end
 
-  # GET /posts/1/edit
+  # @route GET /posts/:id/edit (edit_post)
   def edit
   end
 
-  # POST /posts
+  # @route POST /posts (posts)
   def create
     @post = Post.new(post_params)
 
@@ -30,7 +31,8 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1
+  # @route PATCH /posts/:id (post)
+  # @route PUT /posts/:id (post)
   def update
     if @post.update(post_params)
       redirect_to @post, notice: "Post was successfully updated."
@@ -39,7 +41,7 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
+  # @route DELETE /posts/:id (post)
   def destroy
     @post.destroy
     redirect_to posts_url, notice: "Post was successfully destroyed."
